@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configmap.name_auditd }}
+data:
+  auditd.conf: {{ toYaml .Values.auditdconf | indent 2 }}
+

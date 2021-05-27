@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "audit.fullname" . }}
+  namespace: kube-system
+  labels:
+    k8s-app: auditd-logging
+spec:
+  selector:
+    matchLabels:
+      name: {{ include "audit.name" . }}
+  template:
+    metadata:
+      labels:
+        name: {{ include "audit.name" . }}
+    spec:
+      hostNetwork: true
+      hostPID: true
+      containers:
+      - name: {{ include "audit.name" . }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        securityContext:
+          privileged: true
+          runAsGroup: 0
+          runAsUser: 0
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log/audit
+        stdin: true
+        tty: true
+      volumes:
+      - name: varlog
+        hostPath:
+          path: /var/log/audit
+      imagePullSecrets:
+      - name: default-registry-key

@@ -1,0 +1,4 @@
+SRC_DIR="stx-audit-helm"
+
+TIS_PATCH_VER=PKG_GITREVCOUNT
+
