@@ -4,4 +4,4 @@ RUN yum -y update
 RUN yum -y install\
            audit
 
-ENTRYPOINT ["/sbin/auditd", "-l"]
+ENTRYPOINT ["/sbin/auditd", "-f", "-l"]

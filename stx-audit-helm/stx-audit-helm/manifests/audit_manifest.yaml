@@ -8,7 +8,7 @@ data:
   release: audit
   namespace: kube-system
   source:
-    location: http://172.17.0.1:8080/helm_charts/stx-platform/audit-helm-1.0.0.tgz
+    location: http://172.17.0.1:8080/helm_charts/stx-platform/audit-1.0.0.tgz
     subpath: audit
     type: tar
     reference: master
