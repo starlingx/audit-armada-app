@@ -4,7 +4,7 @@
 
 image:
   repository: docker.io/starlingx/stx-audit
-  tag: stx.6.0-v1.0.0
+  tag: stx.6.0-v1.0.1
   pullPolicy: IfNotPresent
   debug: ''
 
