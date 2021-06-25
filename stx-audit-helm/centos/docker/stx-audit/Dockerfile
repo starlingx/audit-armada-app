@@ -4,4 +4,6 @@ RUN yum -y update
 RUN yum -y install\
            audit
 
-ENTRYPOINT ["/sbin/auditd", "-f", "-l"]
+COPY startAuditd.sh .
+RUN chmod 755 startAuditd.sh
+ENTRYPOINT ["./startAuditd.sh"]

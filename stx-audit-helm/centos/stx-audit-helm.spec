@@ -1,5 +1,5 @@
 # Application tunables (maps to metadata)
-%global app_name audit
+%global app_name auditd
 %global helm_repo stx-platform
 
 %global armada_folder /usr/lib/armada
@@ -11,7 +11,7 @@
 %global helm_folder /usr/lib/helm
 %global toolkit_version 0.1.0
 
-Summary: StarlingX AUDIT Armada Helm Charts
+Summary: StarlingX AUDITD Armada Helm Charts
 Name: stx-audit-helm
 Version: 1.0
 Release: %{tis_patch_ver}%{?_tis_dist}
@@ -27,7 +27,7 @@ BuildArch: noarch
 BuildRequires: helm
 
 %description
-StarlingX AUDIT Helm Charts
+StarlingX AUDITD Helm Charts
 
 %prep
 %setup -n %{name}-%{version}

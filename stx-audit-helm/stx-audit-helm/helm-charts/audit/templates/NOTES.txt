@@ -1,4 +1,4 @@
-1. AUDIT containerized deployment
+1. AUDITD containerized deployment
    This helm charts configuration creates:
       - Config map for /etc/audit/auditd.conf
       - Deploys auditd in a container
