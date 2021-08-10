@@ -13,6 +13,7 @@ fullnameOverride: ""
 
 configmap:
   name_auditd: auditd-etc-config
+  name_auditd_rules: auditd-etc-rules
 
 auditdconf: |-
   ##########################################################################
@@ -53,3 +54,14 @@ auditdconf: |-
   krb5_principal = auditd
   ##krb5_key_file = /etc/audit/audit.key
   distribute_network = no
+
+auditdrules: |-
+  ## First rule - delete all
+  -D
+
+  ## Increase the buffers to survive stress events.
+  ## Make this bigger for busy systems
+  -b 8192
+
+  ## Set failure mode to syslog
+  -f 1

@@ -3,6 +3,87 @@
     check:
       jobs:
         - openstack-tox-linters
+        - k8sapp-auditd-tox-py27
+        - k8sapp-auditd-tox-py36
+        - k8sapp-auditd-tox-flake8
+        - k8sapp-auditd-tox-pylint
+        - k8sapp-auditd-tox-bandit
     gate:
       jobs:
         - openstack-tox-linters
+        - k8sapp-auditd-tox-py27
+        - k8sapp-auditd-tox-py36
+        - k8sapp-auditd-tox-flake8
+        - k8sapp-auditd-tox-pylint
+        - k8sapp-auditd-tox-bandit
+
+- job:
+    name: k8sapp-auditd-tox-py27
+    parent: tox
+    description: |
+            Run py27 test for k8sapp_auditd
+    nodeset: ubuntu-bionic
+    required-projects:
+      - starlingx/config
+      - starlingx/fault
+      - starlingx/update
+      - starlingx/utilities
+    files:
+      - python-k8sapp-auditd/*
+    vars:
+      tox_envlist: py27
+      tox_extra_args: -c python-k8sapp-auditd/k8sapp_auditd/tox.ini
+- job:
+    name: k8sapp-auditd-tox-py36
+    parent: tox
+    description: |
+            Run py36 test for k8sapp_auditd
+    nodeset: ubuntu-bionic
+    required-projects:
+      - starlingx/config
+      - starlingx/fault
+      - starlingx/update
+      - starlingx/utilities
+    files:
+      - python-k8sapp-auditd/*
+    vars:
+      tox_envlist: py36
+      tox_extra_args: -c python-k8sapp-auditd/k8sapp_auditd/tox.ini
+- job:
+    name: k8sapp-auditd-tox-flake8
+    parent: tox
+    description: |
+            Run flake8 test for k8sapp_auditd
+    nodeset: ubuntu-bionic
+    files:
+      - python-k8sapp-auditd/*
+    vars:
+      tox_envlist: flake8
+      tox_extra_args: -c python-k8sapp-auditd/k8sapp_auditd/tox.ini
+- job:
+    name: k8sapp-auditd-tox-pylint
+    parent: tox
+    description: |
+            Run pylint test for k8sapp_auditd
+    nodeset: ubuntu-bionic
+    required-projects:
+      - starlingx/config
+      - starlingx/fault
+      - starlingx/update
+      - starlingx/utilities
+    files:
+      - python-k8sapp-auditd/*
+    vars:
+      tox_envlist: pylint
+      tox_extra_args: -c python-k8sapp-auditd/k8sapp_auditd/tox.ini
+- job:
+    name: k8sapp-auditd-tox-bandit
+    parent: tox
+    description: |
+            Run bandit test for k8sapp_auditd
+    nodeset: ubuntu-bionic
+    files:
+      - python-k8sapp-auditd/*
+    vars:
+      tox_envlist: bandit
+      tox_extra_args: -c python-k8sapp-auditd/k8sapp_auditd/tox.ini

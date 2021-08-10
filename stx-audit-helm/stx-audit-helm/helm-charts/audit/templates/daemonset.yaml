@@ -2,17 +2,22 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: {{ include "audit.fullname" . }}
-  namespace: kube-system
   labels:
-    k8s-app: auditd-logging
+    app: {{ include "audit.name" . }}
+    chart: {{ include "audit.chart" . }}
+    release: {{ .Release.Name }}
 spec:
   selector:
     matchLabels:
-      name: {{ include "audit.name" . }}
+      app: {{ include "audit.name" . }}
+      release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        name: {{ include "audit.name" . }}
+        app: {{ include "audit.name" . }}
+        release: {{ .Release.Name }}
+      annotations:
+        rollme: {{ randAlphaNum 1000 | quote }}
     spec:
       hostNetwork: true
       hostPID: true
@@ -27,11 +32,28 @@ spec:
         volumeMounts:
         - name: varlog
           mountPath: /var/log/audit
+        - name: auditd-etc-config-vol
+          mountPath: /etc/audit/auditd.conf
+          subPath: auditd.conf
+        - name: auditd-etc-rules-vol
+          mountPath: /etc/audit/rules.d
         stdin: true
         tty: true
       volumes:
       - name: varlog
         hostPath:
           path: /var/log/audit
+      - name: auditd-etc-config-vol
+        configMap:
+          name: {{ .Values.configmap.name_auditd }}
+          items:
+          - key: "auditd.conf"
+            path: "auditd.conf"
+      - name: auditd-etc-rules-vol
+        configMap:
+          name: {{ .Values.configmap.name_auditd_rules }}
+          items:
+          - key: audit.rules
+            path: audit.rules
       imagePullSecrets:
       - name: default-registry-key
