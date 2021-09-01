@@ -1,0 +1,15 @@
+/var/log/audit/audit.log {
+maxsize 10M
+start 1
+compress
+dateext
+rotate 20
+daily
+missingok
+notifempty
+create 600 root root
+sharedscripts
+postrotate
+  /bin/kill -9 $(pidof auditd) 2> /dev/null > /dev/null || true
+endscript
+}
