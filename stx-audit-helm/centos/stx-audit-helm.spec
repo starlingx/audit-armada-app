@@ -71,7 +71,11 @@ rm -fr %{app_staging}
 %install
 install -d -m 755 %{buildroot}/%{app_folder}
 install -p -D -m 755 %{_builddir}/%{app_tarball} %{buildroot}/%{app_folder}
+install -m 644 -p -D files/auditd.logrotate %{buildroot}%{_sysconfdir}/logrotate.d/auditd.logrotate
 
 %files
 %defattr(-,root,root,-)
 %{app_folder}/*
+
+# logfile config files
+%{_sysconfdir}/logrotate.d/auditd.logrotate
