@@ -21,6 +21,12 @@ spec:
     spec:
       hostNetwork: true
       hostPID: true
+      tolerations:
+      # this toleration is to have the daemonset runnable on master nodes
+      # remove it if masters can't run pods
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
       containers:
       - name: {{ include "audit.name" . }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
