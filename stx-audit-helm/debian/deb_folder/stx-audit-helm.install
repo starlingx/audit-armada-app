@@ -1,0 +1,2 @@
+etc/logrotate.d/auditd.logrotate
+usr/local/share/applications/helm/*
