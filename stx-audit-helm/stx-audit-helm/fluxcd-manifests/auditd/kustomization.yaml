@@ -1,0 +1,17 @@
+#
+# Copyright (c) 2022 Wind River Systems, Inc.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+namespace: kube-system
+resources:
+  - helmrelease.yaml
+secretGenerator:
+  - name: auditd-static-overrides
+    files:
+      - auditd-static-overrides.yaml
+  - name: auditd-system-overrides
+    files:
+      - auditd-system-overrides.yaml
+generatorOptions:
+  disableNameSuffixHash: true
