@@ -1,0 +1,20 @@
+ARG BASE
+FROM ${BASE} AS stx
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN rm -f /etc/apt/sources.list.d/*.list && \
+    cp /etc/apt/sources.list.d/debian.list.disabled /etc/apt/sources.list.d/debian.list && \
+    apt-get -y update && \
+    apt-get -y install auditd && \
+    apt-get -y clean && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY startAuditd.sh .
+
+RUN mkdir -p /etc/audit && \
+    touch /etc/audit/audit.rules && \
+    chmod 600 /etc/audit/audit.rules
+
+RUN chmod 755 startAuditd.sh
+ENTRYPOINT ["./startAuditd.sh"]

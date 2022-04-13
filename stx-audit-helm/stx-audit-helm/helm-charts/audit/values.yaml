@@ -2,11 +2,16 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# must match one of image.tags below
+variant: centos
+
 image:
   repository: docker.io/starlingx/stx-audit
-  tag: stx.6.0-v1.0.3
   pullPolicy: IfNotPresent
   debug: ''
+  tags:
+    centos: stx.6.0-v1.0.3
+    debian: stx.6.0-v1.0.3
 
 nameOverride: ""
 fullnameOverride: ""
