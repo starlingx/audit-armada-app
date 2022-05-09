@@ -31,10 +31,3 @@ Create chart name and version as used by the chart label.
 {{- define "audit.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
-
-{{/*
-Define the image tag
-*/}}
-{{- define "audit.image.tag" -}}
-{{ get .Values.image.tags .Values.variant }}
-{{- end -}}

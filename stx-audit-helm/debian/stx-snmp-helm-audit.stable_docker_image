@@ -1,4 +1,0 @@
-BUILDER=docker
-LABEL=stx-audit
-DOCKER_CONTEXT=../stx-audit
-DOCKER_FILE=../stx-audit/Dockerfile.debian

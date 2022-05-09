@@ -50,7 +50,7 @@ StarlingX Auditd Application FluxCD Helm Charts
 %build
 
 cd helm-charts
-make VARIANTS=centos
+make
 cd -
 
 # Create a chart tarball compliant with sysinv kube-app.py
@@ -63,7 +63,7 @@ mkdir -p %{app_staging}
 cp files/metadata.yaml %{app_staging}
 cp manifests/auditd_manifest.yaml %{app_staging}
 mkdir -p %{app_staging}/charts
-cp helm-charts/.build/centos/*.tgz %{app_staging}/charts
+cp helm-charts/*.tgz %{app_staging}/charts
 cd %{app_staging}
 
 # Populate metadata

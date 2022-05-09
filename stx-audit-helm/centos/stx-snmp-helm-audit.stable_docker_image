@@ -1,4 +1,3 @@
 BUILDER=docker
 LABEL=stx-audit
-DOCKER_CONTEXT=../stx-audit
-DOCKER_FILE=../stx-audit/Dockerfile.centos
+DOCKER_CONTEXT=docker/stx-audit

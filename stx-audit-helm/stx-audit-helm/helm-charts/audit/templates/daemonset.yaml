@@ -29,7 +29,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: {{ include "audit.name" . }}
-        image: '{{ .Values.image.repository }}:{{ include "audit.image.tag" . }}'
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         securityContext:
           privileged: true
