@@ -16,7 +16,7 @@
 %global helm_folder /usr/lib/helm
 %global toolkit_version 0.1.0
 
-Summary: StarlingX AUDITD Armada Helm Charts
+Summary: StarlingX AUDITD FluxCD Helm Charts
 Name: stx-audit-helm
 Version: 1.0
 Release: %{tis_patch_ver}%{?_tis_dist}
@@ -36,13 +36,13 @@ BuildRequires: python-k8sapp-auditd-wheels
 %description
 StarlingX AUDITD Helm Charts
 
-%package fluxcd
-Summary: StarlingX Auditd Application FluxCD Helm Charts
+%package armada
+Summary: StarlingX Auditd Application Armada Helm Charts
 Group: base
 License: Apache-2.0
 
-%description fluxcd
-StarlingX Auditd Application FluxCD Helm Charts
+%description armada
+StarlingX Auditd Application Armada Helm Charts
 
 %prep
 %setup -n %{name}-%{version}
@@ -55,8 +55,8 @@ cd -
 
 # Create a chart tarball compliant with sysinv kube-app.py
 %define app_staging %{_builddir}/staging
-%define app_tarball_armada %{app_name}-%{version}-%{tis_patch_ver}.tgz
-%define app_tarball_fluxcd %{app_name}-fluxcd-%{version}-%{tis_patch_ver}.tgz
+%define app_tarball_armada %{app_name}-armada-%{version}-%{tis_patch_ver}.tgz
+%define app_tarball_fluxcd %{app_name}-%{version}-%{tis_patch_ver}.tgz
 
 # Setup staging
 mkdir -p %{app_staging}
@@ -101,12 +101,12 @@ install -p -D -m 755 %{_builddir}/%{app_tarball_armada} %{buildroot}/%{app_folde
 install -p -D -m 755 %{_builddir}/%{app_tarball_fluxcd} %{buildroot}/%{app_folder}
 install -m 644 -p -D files/auditd.logrotate %{buildroot}%{_sysconfdir}/logrotate.d/auditd.logrotate
 
-%files
+%files armada
 %defattr(-,root,root,-)
 %{app_folder}/%{app_tarball_armada}
 %{_sysconfdir}/logrotate.d/auditd.logrotate
 
-%files fluxcd
+%files
 %defattr(-,root,root,-)
 %{app_folder}/%{app_tarball_fluxcd}
 # logfile config files

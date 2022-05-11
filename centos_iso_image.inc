@@ -1,2 +1,2 @@
 stx-audit-helm
-stx-audit-helm-fluxcd
+stx-audit-helm-armada
