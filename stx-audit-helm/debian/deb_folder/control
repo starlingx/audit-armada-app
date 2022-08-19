@@ -13,5 +13,5 @@ Package: stx-audit-helm
 Section: libs
 Architecture: any
 Depends: ${misc:Depends}
-Description: StarlingX Audit Armada Helm Charts
- This package contains Armada Helm charts for the audit application.
+Description: StarlingX Audit FluxCD Helm Charts
+ This package contains FluxCD Helm charts for the audit application.
