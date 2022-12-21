@@ -1,9 +1,0 @@
-SRC_DIR="k8sapp_auditd"
-OPT_DEP_LIST="$STX_BASE/audit-armada-app/stx-audit-helm"
-
-TIS_PATCH_VER=GITREVCOUNT
-
-# Keep the SRCREV in sync with stx-auditd-helm so the app version is the same
-# as the plugin version
-
-TIS_BASE_SRCREV=eeb94bddc8c4c6e513adfae5505e174e0445deed

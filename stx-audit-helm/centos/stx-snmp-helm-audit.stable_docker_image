@@ -1,3 +1,0 @@
-BUILDER=docker
-LABEL=stx-audit
-DOCKER_CONTEXT=docker/stx-audit

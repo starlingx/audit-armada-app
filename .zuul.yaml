@@ -29,11 +29,11 @@
       - starlingx/update
       - starlingx/utilities
     files:
-      - python-k8sapp-auditd/*
+      - python3-k8sapp-auditd/*
     vars:
       tox_envlist: py39
       python_version: 3.9
-      tox_extra_args: -c python-k8sapp-auditd/k8sapp_auditd/tox.ini
+      tox_extra_args: -c python3-k8sapp-auditd/k8sapp_auditd/tox.ini
 
 - job:
     name: k8sapp-auditd-tox-flake8
@@ -42,10 +42,10 @@
             Run flake8 test for k8sapp_auditd
     nodeset: ubuntu-bionic
     files:
-      - python-k8sapp-auditd/*
+      - python3-k8sapp-auditd/*
     vars:
       tox_envlist: flake8
-      tox_extra_args: -c python-k8sapp-auditd/k8sapp_auditd/tox.ini
+      tox_extra_args: -c python3-k8sapp-auditd/k8sapp_auditd/tox.ini
 - job:
     name: k8sapp-auditd-tox-pylint
     parent: tox
@@ -58,10 +58,10 @@
       - starlingx/update
       - starlingx/utilities
     files:
-      - python-k8sapp-auditd/*
+      - python3-k8sapp-auditd/*
     vars:
       tox_envlist: pylint
-      tox_extra_args: -c python-k8sapp-auditd/k8sapp_auditd/tox.ini
+      tox_extra_args: -c python3-k8sapp-auditd/k8sapp_auditd/tox.ini
 - job:
     name: k8sapp-auditd-tox-bandit
     parent: tox
@@ -69,7 +69,7 @@
             Run bandit test for k8sapp_auditd
     nodeset: ubuntu-bionic
     files:
-      - python-k8sapp-auditd/*
+      - python3-k8sapp-auditd/*
     vars:
       tox_envlist: bandit
-      tox_extra_args: -c python-k8sapp-auditd/k8sapp_auditd/tox.ini
+      tox_extra_args: -c python3-k8sapp-auditd/k8sapp_auditd/tox.ini

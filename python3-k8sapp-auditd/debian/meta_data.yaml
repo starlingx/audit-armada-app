@@ -1,7 +1,7 @@
 ---
-debname: stx-audit-helm
+debname: python3-k8sapp-auditd
 debver: 1.0-1
-src_path: stx-audit-helm
+src_path: k8sapp_auditd
 revision:
   dist: $STX_DIST
   GITREVCOUNT:
