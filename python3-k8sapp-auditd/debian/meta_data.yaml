@@ -6,4 +6,4 @@ revision:
   dist: $STX_DIST
   GITREVCOUNT:
     SRC_DIR: ${MY_REPO}/stx/audit-armada-app
-    BASE_SRCREV: eeb94bddc8c4c6e513adfae5505e174e0445deed
+    BASE_SRCREV: 2d84977ac02ab0be9906dfdcb9d3ff95703332cc
