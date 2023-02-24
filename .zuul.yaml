@@ -5,7 +5,6 @@
     check:
       jobs:
         - openstack-tox-linters
-        - k8sapp-auditd-tox-py27
         - k8sapp-auditd-tox-py39
         - k8sapp-auditd-tox-flake8
         - k8sapp-auditd-tox-pylint
@@ -13,28 +12,10 @@
     gate:
       jobs:
         - openstack-tox-linters
-        - k8sapp-auditd-tox-py27
         - k8sapp-auditd-tox-py39
         - k8sapp-auditd-tox-flake8
         - k8sapp-auditd-tox-pylint
         - k8sapp-auditd-tox-bandit
-
-- job:
-    name: k8sapp-auditd-tox-py27
-    parent: tox
-    description: |
-            Run py27 test for k8sapp_auditd
-    nodeset: ubuntu-bionic
-    required-projects:
-      - starlingx/config
-      - starlingx/fault
-      - starlingx/update
-      - starlingx/utilities
-    files:
-      - python-k8sapp-auditd/*
-    vars:
-      tox_envlist: py27
-      tox_extra_args: -c python-k8sapp-auditd/k8sapp_auditd/tox.ini
 
 - job:
     name: k8sapp-auditd-tox-py39
