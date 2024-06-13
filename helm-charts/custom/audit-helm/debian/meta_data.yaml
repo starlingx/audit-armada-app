@@ -1,0 +1,10 @@
+---
+debname: audit-helm
+debver: 1.0-0
+src_path: audit-helm
+revision:
+  dist: $STX_DIST
+  GITREVCOUNT:
+    stx_patch: 1
+    SRC_DIR: ${MY_REPO}/stx/audit-armada-app/helm-charts/custom/audit-helm/audit-helm/audit
+    BASE_SRCREV: f5d03fac8a81d2443559fc4dea4f0ffea9f15969

@@ -1,0 +1,5 @@
+audit-helm (1.0-0) unstable; urgency=medium
+
+  * Initial release.
+
+ --  Carmen Rata <carmen.rata@windriver.com>  Thu, 13 Jun 2024 13:47:47 +0000

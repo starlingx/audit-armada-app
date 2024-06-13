@@ -1,5 +1,5 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: stx-audit-helm
+Upstream-Name: audit-helm
 Source: https://opendev.org/starlingx/audit-armada-app/
 
 Files: *
@@ -23,7 +23,7 @@ License: Apache-2
 # If you want to use GPL v2 or later for the /debian/* files use
 # the following clauses, or change it to suit. Delete these two lines
 Files: debian/*
-Copyright: 2024 Wind River Systems, Inc
+Copyright: 2021 Wind River Systems, Inc
 License: Apache-2
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.

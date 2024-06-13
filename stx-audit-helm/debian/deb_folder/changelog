@@ -1,3 +1,10 @@
+stx-audit-helm (1.0-2) unstable; urgency=medium
+
+  * Split helm chart into separate package and apply auto versioning.
+
+ --  Carmen Rata <carmen.rata@windriver.com>  Thu, 13 Jun 2024 13:47:47 +0000
+
+
 stx-audit-helm (1.0-1) unstable; urgency=medium
 
   * Initial release.
