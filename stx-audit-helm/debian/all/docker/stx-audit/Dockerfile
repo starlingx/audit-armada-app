@@ -4,11 +4,9 @@ FROM ${BASE} AS stx
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get -y update && \
-    apt-get -y install auditd python3-pip && \
-    pip3 install --upgrade pip && \
-    pip3 install --no-cache-dir --upgrade \
-        setuptools==78.1.1 \
-        wheel==0.38.1
+    apt-get -y install --no-install-recommends auditd && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY startAuditd.sh .
 
