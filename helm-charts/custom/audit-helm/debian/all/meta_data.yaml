@@ -1,6 +1,6 @@
 ---
 debname: audit-helm
-debver: 1.0-0
+debver: 1.0-1
 src_path: audit-helm
 revision:
   dist: $STX_DIST

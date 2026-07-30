@@ -65,3 +65,26 @@ auditdrules: |-
 
   ## Set failure mode to syslog
   -f 1
+
+# Extra host paths to mount into the auditd container (read-only).
+# Required when audit rules use file watch (-w) on host filesystem paths.
+# Each entry must specify:
+#   name     - volume name (must be unique, valid k8s name)
+#   hostPath - path on the host filesystem
+#   mountPath - path inside the container (typically same as hostPath)
+#   readOnly - mount as read-only (default: true)
+#   type     - hostPath type: Directory, DirectoryOrCreate, File, etc.
+#
+# Example:
+#   extraHostPathMounts:
+#     - name: etc-kubernetes
+#       hostPath: /etc/kubernetes
+#       mountPath: /etc/kubernetes
+#       readOnly: true
+#       type: Directory
+#     - name: etc-shadow
+#       hostPath: /etc/shadow
+#       mountPath: /etc/shadow
+#       readOnly: true
+#       type: File
+extraHostPathMounts: []

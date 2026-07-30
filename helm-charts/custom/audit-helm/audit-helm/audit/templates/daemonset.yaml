@@ -46,6 +46,13 @@ spec:
           subPath: auditd.conf
         - name: auditd-etc-rules-vol
           mountPath: /etc/audit/rules.d
+{{- if .Values.extraHostPathMounts }}
+{{- range .Values.extraHostPathMounts }}
+        - name: {{ .name }}
+          mountPath: {{ .mountPath }}
+          readOnly: {{ .readOnly | default true }}
+{{- end }}
+{{- end }}
         stdin: true
         tty: true
       volumes:
@@ -64,5 +71,13 @@ spec:
           items:
           - key: audit.rules
             path: audit.rules
+{{- if .Values.extraHostPathMounts }}
+{{- range .Values.extraHostPathMounts }}
+      - name: {{ .name }}
+        hostPath:
+          path: {{ .hostPath }}
+          type: {{ .type | default "Directory" }}
+{{- end }}
+{{- end }}
       imagePullSecrets:
       - name: default-registry-key

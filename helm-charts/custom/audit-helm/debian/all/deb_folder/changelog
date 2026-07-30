@@ -1,3 +1,9 @@
+audit-helm (1.0-1) unstable; urgency=medium
+
+  * Add configurable extraHostPathMounts to auditd daemonset
+
+ -- Rahul Roshan Kachchap <RahulRoshan.Kachchap@windriver.com>  Fri, 31 Jul 2026 05:30:10 +0000
+
 audit-helm (1.0-0) unstable; urgency=medium
 
   * Initial release.
